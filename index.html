@@ -1,23 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AETARISE</title>
+
 <style>
-body{font-family: Arial; margin:0; background:#f4f4f4;}
-header{background:#222; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center;}
-nav a{color:white; margin:10px; text-decoration:none; font-weight:bold;}
-.hero{background:#0077ff; color:white; padding:60px; text-align:center;}
-.hero p.tagline{font-size:18px; font-style:italic; margin-top:10px;}
-.container{padding:30px;}
-.products{display:flex; flex-wrap:wrap; gap:20px;}
-.product{background:white; padding:15px; width:250px; border-radius:10px; box-shadow:0 5px 10px rgba(0,0,0,0.1); text-align:center;}
-.product img{width:100%; border-radius:8px;}
-button{background:#0077ff; border:none; color:white; padding:10px 15px; margin-top:10px; cursor:pointer; border-radius:5px;}
-button:hover{background:#0055cc;}
-.cart{position:fixed; right:20px; top:80px; background:white; padding:20px; border-radius:10px; box-shadow:0 5px 10px rgba(0,0,0,0.2); width:200px;}
-footer{background:#222; color:white; text-align:center; padding:15px; margin-top:40px;}
+body{
+font-family: Arial;
+margin:0;
+background:#f4f4f4;
+}
+header{
+background:#222;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+font-weight:bold;
+}
+.hero{
+background:#0077ff;
+color:white;
+padding:60px;
+text-align:center;
+}
+.hero p.tagline{
+font-size:18px;
+font-style:italic;
+margin-top:10px;
+}
+.container{
+padding:30px;
+}
+.products{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+}
+.product{
+background:white;
+padding:15px;
+width:250px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+.product img{
+width:100%;
+border-radius:8px;
+}
+button{
+background:#0077ff;
+border:none;
+color:white;
+padding:10px 15px;
+margin-top:10px;
+cursor:pointer;
+border-radius:5px;
+}
+button:hover{
+background:#0055cc;
+}
+.cart{
+position:fixed;
+right:20px;
+top:80px;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.2);
+width:200px;
+}
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:40px;
+}
 </style>
+
 </head>
 <body>
 
@@ -46,7 +115,31 @@ Our goal is to create a marketing platform that can give our Aeta brethren an ed
 
 <section class="container" id="products">
 <h2>Our Products</h2>
-<div class="products" id="products-container"></div>
+
+<div class="products">
+
+<div class="product">
+<img src="images/product1.jpg" alt="Product A">
+<h3>Product A</h3>
+<p>₱500</p>
+<button onclick="addToCart('Product A',500)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="images/product2.jpg" alt="Product B">
+<h3>Product B</h3>
+<p>₱750</p>
+<button onclick="addToCart('Product B',750)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="images/product3.jpg" alt="Product C">
+<h3>Product C</h3>
+<p>₱900</p>
+<button onclick="addToCart('Product C',900)">Add to Cart</button>
+</div>
+
+</div>
 </section>
 
 <div class="cart">
@@ -60,46 +153,16 @@ Our goal is to create a marketing platform that can give our Aeta brethren an ed
 </footer>
 
 <script>
-// Cart functionality
-let cart = []
-let total = 0
-function addToCart(product, price){
-    cart.push(product)
-    total += price
-    let li = document.createElement("li")
-    li.textContent = product + " - ₱" + price
-    document.getElementById("cart-items").appendChild(li)
-    document.getElementById("total").textContent = total
+let cart=[]
+let total=0
+function addToCart(product,price){
+cart.push(product)
+total+=price
+let li=document.createElement("li")
+li.textContent=product+" - ₱"+price
+document.getElementById("cart-items").appendChild(li)
+document.getElementById("total").textContent=total
 }
-
-// Auto-load product images
-const productsContainer = document.getElementById('products-container')
-const imagesFolder = 'images/'  // Must be named 'images'
-
-function loadProducts(){
-    // This will only work if you host it (GitHub Pages / Netlify) or use local server
-    // On Android, file system access is limited, so we use a workaround with manual listing
-    const productFiles = [
-        'images_product1.jpg',
-        'images_product2.jpg',
-        'images_product3.jpg'
-    ]
-    const defaultPrice = 500
-    productFiles.forEach(file => {
-        const productName = file.replace(/\.[^/.]+$/, "").replace(/_/g," ")
-        const div = document.createElement('div')
-        div.className = 'product'
-        div.innerHTML = `
-            <img src="${imagesFolder}${file}" alt="${productName}">
-            <h3>${productName}</h3>
-            <p>₱${defaultPrice}</p>
-            <button onclick="addToCart('${productName}',${defaultPrice})">Add to Cart</button>
-        `
-        productsContainer.appendChild(div)
-    })
-}
-
-loadProducts()
 </script>
 
 </body>
