@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>JBS Online Store</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+background:#f4f4f4;
+}
+
+header{
+background:#222;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+background:#0077ff;
+color:white;
+padding:60px;
+text-align:center;
+}
+
+.container{
+padding:30px;
+}
+
+.products{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.product{
+background:white;
+padding:15px;
+width:250px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.product img{
+width:100%;
+border-radius:8px;
+}
+
+button{
+background:#0077ff;
+border:none;
+color:white;
+padding:10px 15px;
+margin-top:10px;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#0055cc;
+}
+
+.cart{
+position:fixed;
+right:20px;
+top:80px;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.2);
+width:200px;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2>JBS Store</h2>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#products">Products</a>
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<h1>Welcome to JBS Online Store</h1>
+
+<p>Your trusted online marketing platform for quality products.</p>
+
+</section>
+
+<section class="container" id="about">
+
+<h2>About Us</h2>
+
+<p>
+JBS Online Store provides customers with quality and affordable products.
+Our goal is to make online shopping simple, reliable, and accessible for everyone.
+</p>
+
+</section>
+
+<section class="container" id="products">
+
+<h2>Our Products</h2>
+
+<div class="products">
+
+<div class="product">
+
+<img src="https://via.placeholder.com/250">
+
+<h3>Product A</h3>
+
+<p>₱500</p>
+
+<button onclick="addToCart('Product A',500)">Add to Cart</button>
+
+</div>
+
+<div class="product">
+
+<img src="https://via.placeholder.com/250">
+
+<h3>Product B</h3>
+
+<p>₱750</p>
+
+<button onclick="addToCart('Product B',750)">Add to Cart</button>
+
+</div>
+
+<div class="product">
+
+<img src="https://via.placeholder.com/250">
+
+<h3>Product C</h3>
+
+<p>₱900</p>
+
+<button onclick="addToCart('Product C',900)">Add to Cart</button>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="cart">
+
+<h3>Cart</h3>
+
+<ul id="cart-items"></ul>
+
+<p><b>Total: ₱<span id="total">0</span></b></p>
+
+</div>
+
+<footer>
+
+<p>© 2026 JBS Online Store</p>
+
+</footer>
+
+<script>
+
+let cart=[]
+let total=0
+
+function addToCart(product,price){
+
+cart.push(product)
+
+total+=price
+
+let li=document.createElement("li")
+
+li.textContent=product+" - ₱"+price
+
+document.getElementById("cart-items").appendChild(li)
+
+document.getElementById("total").textContent=total
+
+}
+
+</script>
+
+</body>
+</html>
