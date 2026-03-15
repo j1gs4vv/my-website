@@ -40,6 +40,7 @@ text-align:center;
 
 .hero h1{
 font-size:48px;
+margin-bottom:10px;
 }
 
 .hero .tagline{
@@ -72,6 +73,11 @@ width:100%;
 height:200px;
 object-fit:cover;
 border-radius:8px;
+}
+
+.product a{
+text-decoration:none;
+color:black;
 }
 
 button{
@@ -191,24 +197,50 @@ Each piece reflects heritage, identity, and tradition.
 <div class="products">
 
 <div class="product">
+
+<a href="product1.html">
 <img src="product1.jpeg">
-<h3>Product 1</h3>
+<h3>Woven Basket Container</h3>
+</a>
+
 <p>₱500</p>
-<button onclick="addToCart('Product 1',500)">Add to Cart</button>
+
+<button onclick="addToCart('Woven Basket Container',500)">
+Add to Cart
+</button>
+
 </div>
 
+
 <div class="product">
+
+<a href="product2.html">
 <img src="product2.jpeg">
-<h3>Product 2</h3>
+<h3>Handwoven Circular Earrings</h3>
+</a>
+
 <p>₱650</p>
-<button onclick="addToCart('Product 2',650)">Add to Cart</button>
+
+<button onclick="addToCart('Handwoven Circular Earrings',650)">
+Add to Cart
+</button>
+
 </div>
 
+
 <div class="product">
+
+<a href="product3.html">
 <img src="product3.jpeg">
-<h3>Product 3</h3>
+<h3>Bamboo Inspired Earrings</h3>
+</a>
+
 <p>₱700</p>
-<button onclick="addToCart('Product 3',700)">Add to Cart</button>
+
+<button onclick="addToCart('Bamboo Inspired Earrings',700)">
+Add to Cart
+</button>
+
 </div>
 
 </div>
@@ -234,8 +266,6 @@ Checkout
 <p>© 2026 AETARISE</p>
 
 </footer>
-
-<!-- Checkout Form -->
 
 <div class="modal" id="checkoutModal">
 
